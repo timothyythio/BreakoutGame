@@ -85,7 +85,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
         Time.timeScale = 0f; // ✅ Freeze AFTER all animations finish
 
-        yield return new WaitForSecondsRealtime(2.4f); // Small buffer before transitioning (optional)
+        yield return new WaitForSecondsRealtime(1.5f); // Small buffer before transitioning (optional)
 
         Time.timeScale = 1f; // Restore time scale before switching scenes
 
