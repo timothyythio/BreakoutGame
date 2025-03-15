@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -8,10 +10,15 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
     [SerializeField] private float score=0;
-    [SerializeField] private float lives = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private List<Hearts> heartsUI;
+
 
     private int currentBrickCount;
     private int totalBrickCount;
+    private int currentLives;
+    
+    
 
     private void OnEnable()
     {
@@ -19,6 +26,10 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         ball.ResetBall();
         totalBrickCount = bricksContainer.childCount;
         currentBrickCount = bricksContainer.childCount;
+        currentLives = maxLives;
+        score = 0;
+        UpdateHeartsUI();
+       
     }
 
     private void OnDisable()
@@ -38,6 +49,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // add camera shake here
         currentBrickCount--;
         score++;
+        scoreText.text = $"Score:{score}";
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
         Debug.Log($"Current Score: {score}");
         if (currentBrickCount <= 0) {
@@ -48,9 +60,10 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     public void KillBall()
     {
-        maxLives--;
+        currentLives--;
         Debug.Log($"Current Lives: {maxLives}");
-        if (maxLives <= 0)
+        UpdateHeartsUI();
+        if (currentLives <= 0)
         {
             StartCoroutine(GameOverRoutine());
             
@@ -68,7 +81,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         Debug.Log("GameOverRoutine started.");
 
         Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1.8f);
         Time.timeScale = 1f;
 
         Debug.Log("Coroutine finished waiting, trying to switch scenes.");
@@ -81,6 +94,16 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         else
         {
             Debug.LogError("SceneHandler.Instance is null. Scene transition failed.");
+        }
+    }
+    private void UpdateHeartsUI()
+    {
+        Debug.Log($"Updating hearts UI - Current Lives: {currentLives}");
+        for (int i = 0; i < heartsUI.Count; i++)
+        {
+            bool isFull = i < currentLives;
+            Debug.Log($"Setting heart {i} to {(isFull ? "FULL" : "EMPTY")}");
+            heartsUI[i].setFull(isFull);
         }
     }
 
