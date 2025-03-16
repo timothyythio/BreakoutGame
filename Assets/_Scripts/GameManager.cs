@@ -116,7 +116,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
                 heart.transform.DOShakeScale(0.3f, 0.5f, 10).OnComplete(() => {
                     heart.GetComponent<CanvasGroup>().DOFade(0, 0.2f).OnComplete(() => {
                         heart.setFull(false);
-                        heart.transform.DOScale(Vector3.one * 0.5f, 0.2f);
+                        heart.transform.DOScale(Vector3.one * 0.35f, 0.2f);
                         heart.GetComponent<CanvasGroup>().DOFade(1, 0.2f).OnComplete(() =>
                         {
                             if (i == lastHeartIndex)
@@ -132,7 +132,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             else
             {
                 heartsUI[i].setFull(isFull);
-                heartsUI[i].transform.DOScale(Vector3.one * 0.5f, 0.2f);
+                heartsUI[i].transform.DOScale(Vector3.one * 0.35f, 0.2f);
 
             }
 
