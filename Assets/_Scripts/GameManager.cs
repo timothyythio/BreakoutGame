@@ -48,7 +48,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // fire audio here
         // implement particle effect here
         // add camera shake here
-        CameraShake.Shake(0.2f, 0.5f);
+        CameraShake.Shake(0.2f, 0.3f);
         currentBrickCount--;
         IncreaseScore();
 
@@ -68,6 +68,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         UpdateHeartsUI();
         // update lives on HUD here
         // game over UI if maxLives < 0, then exit to main menu after delay
+        CameraShake.Shake(0.6f, 0.7f);
         ball.ResetBall();
     }
 
