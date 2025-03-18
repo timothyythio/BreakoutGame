@@ -94,7 +94,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         if (SceneHandler.Instance != null)
         {
             Debug.Log("Loading menu scene...");
-            SceneHandler.Instance.LoadMenuScene();
+            SceneHandler.Instance.LoadGameOverScene();
         }
         else
         {
