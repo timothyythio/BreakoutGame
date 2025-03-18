@@ -85,7 +85,7 @@ MonoBehaviour:
   m_SourceFontFileGUID: 8574f06de4ab837409d6c3c7716df09a
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 8574f06de4ab837409d6c3c7716df09a
+    sourceFontFileGUID: 4521a0b7d94fadf48b9e268fa1b42711
     faceIndex: 0
     pointSizeSamplingMode: 0
     pointSize: 47
@@ -1899,9 +1899,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8
+    - _ScaleRatioB: 0.65
+    - _ScaleRatioC: 0.65
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
