@@ -13,11 +13,11 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int score=0;
     [SerializeField] private List<Hearts> heartsUI;
     [SerializeField] ScoreUI scoreUICounter;
-    [SerializeField] AudioManager audioManager;
 
     private int currentBrickCount;
     private int totalBrickCount;
     private int currentLives;
+    
     
 
     private void OnEnable()
@@ -29,8 +29,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         currentLives = maxLives;
         score = 0;
         UpdateHeartsUI();
-        audioManager.playBGM();
-
+        
+       
     }
 
     private void OnDisable()
@@ -48,8 +48,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // fire audio here
         // implement particle effect here
         // add camera shake here
-        audioManager.playBreakSFX();
-
         CameraShake.Shake(0.2f, 0.3f);
         currentBrickCount--;
         IncreaseScore();
