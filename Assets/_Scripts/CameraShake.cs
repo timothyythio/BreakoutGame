@@ -1,20 +1,16 @@
 using UnityEngine;
-using DG.Tweening;  
+using DG.Tweening;
 
-public class CameraShake : MonoBehaviour
+public class CameraShake : SingletonMonoBehavior<CameraShake>
 {
-    private static CameraShake _instance;
-
-    private void Awake()
+    public static void Shake(float duration, float strength)
     {
-        _instance = this;
+        Instance.OnShake(duration, strength);
     }
 
-    public static void Shake(float duration = 0.2f, float strength = 0.3f)
+    private void OnShake(float duration, float strength)
     {
-        if (_instance != null)
-        {
-            _instance.transform.DOShakePosition(duration, strength);
-        }
+        transform.DOShakePosition(duration, strength);
+        transform.DOShakeRotation(duration, strength);
     }
 }
