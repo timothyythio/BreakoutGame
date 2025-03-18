@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -8,7 +9,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioSource bgmSource;
     [SerializeField] public AudioSource bounceSource;
     [SerializeField] public AudioSource breakSource;
+    [SerializeField] public Ball ball;
 
+
+    private void Update()
+    {
+        ball.ballBounced.AddListener(playBounceSFX);
+    }
     public void playBGM()
     {
         bgmSource.clip = backgroundMusic;
