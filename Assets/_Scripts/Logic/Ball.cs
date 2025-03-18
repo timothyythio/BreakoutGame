@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
@@ -12,12 +11,10 @@ public class Ball : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     private bool isBallActive;
-    public UnityEvent ballBounced;
 
     private void OnCollisionEnter(Collision other)
     {
-        ballBounced.Invoke();
-        if (other.gameObject.CompareTag("Paddle"))
+        if(other.gameObject.CompareTag("Paddle"))
         {
             Vector3 directionToFire = (transform.position - other.transform.position).normalized;
             float angleOfContact = Vector3.Angle(transform.forward, directionToFire);
