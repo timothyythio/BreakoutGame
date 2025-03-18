@@ -67,7 +67,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         UpdateHeartsUI();
         // update lives on HUD here
         // game over UI if maxLives < 0, then exit to main menu after delay
-       
+        ball.ResetBall();
     }
 
     private IEnumerator GameOverRoutine()
