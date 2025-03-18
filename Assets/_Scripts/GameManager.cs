@@ -30,7 +30,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score = 0;
         UpdateHeartsUI();
         audioManager.playBGM();
-
     }
 
     private void OnDisable()
