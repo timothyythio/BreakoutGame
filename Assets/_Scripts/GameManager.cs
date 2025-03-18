@@ -48,6 +48,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // fire audio here
         // implement particle effect here
         // add camera shake here
+        CameraShake.Shake(0.2f, 0.5f);
         currentBrickCount--;
         IncreaseScore();
 
