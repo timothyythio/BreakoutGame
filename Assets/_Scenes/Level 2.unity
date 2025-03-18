@@ -2866,8 +2866,11 @@ MonoBehaviour:
   ball: {fileID: 4561635119993004754}
   bricksContainer: {fileID: 796630123}
   score: 0
-  heartsUI: []
-  scoreUICounter: {fileID: 0}
+  heartsUI:
+  - {fileID: 897038330}
+  - {fileID: 1421107030}
+  - {fileID: 1851309104}
+  scoreUICounter: {fileID: 1321219640}
 --- !u!1001 &1708692028
 PrefabInstance:
   m_ObjectHideFlags: 0
