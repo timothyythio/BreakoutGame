@@ -51,6 +51,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         CameraShake.Shake(0.2f, 0.3f);
         currentBrickCount--;
         IncreaseScore();
+        audioManager.playBreakSFX();
 
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
         Debug.Log($"Current Score: {score}");
