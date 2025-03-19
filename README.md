@@ -45,4 +45,4 @@ public class CameraShake : SingletonMonoBehavior<CameraShake>
 
 ---
 
-Each team member should pick at least **one feature** to implement and submit it via a pull request. Keeping features modular and easy to integrate will improve collaboration and maintainability of the project. 🚀
+
