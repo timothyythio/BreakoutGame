@@ -13,6 +13,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int score=0;
     [SerializeField] private List<Hearts> heartsUI;
     [SerializeField] ScoreUI scoreUICounter;
+    [SerializeField] private AudioManager audioManager;
 
     private int currentBrickCount;
     private int totalBrickCount;
