@@ -409,7 +409,7 @@ MonoBehaviour:
   breakEffect: {fileID: 8300000, guid: 6f627b33e6c454e49a97d392a3669ada, type: 3}
   bgmSource: {fileID: 205822355}
   bounceSource: {fileID: 4561635119993004758}
-  breakSource: {fileID: 1149395890}
+  breakSource: {fileID: 176429390}
   ball: {fileID: 4561635119993004754}
 --- !u!4 &176429389
 Transform:
