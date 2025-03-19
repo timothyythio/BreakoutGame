@@ -171,7 +171,6 @@ MonoBehaviour:
   animationType: 19
   animationDuration: 1
   transitionCanvas: {fileID: 1003730455}
-  gameOverScene: GameOverScreen
 --- !u!114 &681802681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 2
+  m_ScaleFactor: 1
   m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
