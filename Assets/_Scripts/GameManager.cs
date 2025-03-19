@@ -13,6 +13,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int score = 0;
     [SerializeField] private List<Hearts> heartsUI;
     [SerializeField] ScoreUI scoreUICounter;
+    [SerializeField] private AudioManager audioManager;
 
     private int currentBrickCount;
     private int totalBrickCount;
@@ -29,8 +30,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         currentLives = maxLives;
         score = 0;
         UpdateHeartsUI();
-
-
+        audioManager.playBGM();
     }
 
     private void OnDisable()
@@ -134,7 +134,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         if (currentLives <= 0)
         {
             StartCoroutine(GameOverRoutine());
-
         }
     }
 
