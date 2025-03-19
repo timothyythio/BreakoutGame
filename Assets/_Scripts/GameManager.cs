@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using DG.Tweening;
 
