@@ -13,8 +13,6 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
     [SerializeField] private Ease animationType;
     [SerializeField] private float animationDuration;
     [SerializeField] private RectTransform transitionCanvas;
-    [SerializeField] private string gameOverScene;
-
 
     private int nextLevelIndex;
     private float initXPosition;
@@ -51,13 +49,6 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
         transitionCanvas.DOLocalMoveX(initXPosition + transitionCanvas.rect.width, animationDuration).SetEase(animationType);
         StartCoroutine(LoadSceneAfterTransition(menuScene));
         nextLevelIndex = 0;
-    }
-
-    public void LoadGameOverScene()
-    {
-        transitionCanvas.DOLocalMoveX(initXPosition + transitionCanvas.rect.width, animationDuration)
-            .SetEase(animationType);
-        StartCoroutine(LoadSceneAfterTransition(gameOverScene));
     }
 
     private IEnumerator LoadSceneAfterTransition(string scene)

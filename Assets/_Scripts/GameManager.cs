@@ -13,11 +13,12 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int score=0;
     [SerializeField] private List<Hearts> heartsUI;
     [SerializeField] ScoreUI scoreUICounter;
-    [SerializeField] AudioManager audioManager;
+
 
     private int currentBrickCount;
     private int totalBrickCount;
     private int currentLives;
+    
     
 
     private void OnEnable()
@@ -30,6 +31,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         score = 0;
         UpdateHeartsUI();
         audioManager.playBGM();
+
     }
 
     private void OnDisable()
@@ -47,8 +49,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         // fire audio here
         // implement particle effect here
         // add camera shake here
-        audioManager.playBreakSFX();
-
         CameraShake.Shake(0.2f, 0.3f);
         currentBrickCount--;
         IncreaseScore();
@@ -77,19 +77,31 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     {
         Debug.Log("GameOverRoutine started.");
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        // ✅ Allow animations to play first before delaying
+        yield return new WaitForSeconds(0.5f); // Adjust if needed to fit heart animation duration
+
+        Debug.Log("GameOver delay started. Waiting for 3 seconds before freeze...");
+
+        yield return new WaitForSecondsRealtime(0.5f); // ⏳ Now delay AFTER animations
+
+        Debug.Log("GameOver delay completed. Freezing game.");
+
+        Time.timeScale = 0f; // ✅ Freeze AFTER all animations finish
+
+        yield return new WaitForSecondsRealtime(1.5f); // Small buffer before transitioning (optional)
+
+        Time.timeScale = 1f; // Restore time scale before switching scenes
 
         if (SceneHandler.Instance != null)
         {
-            Debug.Log("Loading Game Over scene...");
-            SceneHandler.Instance.LoadGameOverScene();
+            Debug.Log("Loading menu scene...");
+            SceneHandler.Instance.LoadMenuScene();
         }
         else
         {
             Debug.LogError("SceneHandler.Instance is null! Scene transition failed.");
         }
     }
-
 
     private void UpdateHeartsUI()
     {
