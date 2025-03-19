@@ -134,7 +134,6 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         if (currentLives <= 0)
         {
             StartCoroutine(GameOverRoutine());
-
         }
     }
 
