@@ -10,7 +10,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     [SerializeField] private int maxLives = 3;
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
-    [SerializeField] private int score=0;
+    [SerializeField] private int score = 0;
     [SerializeField] private List<Hearts> heartsUI;
     [SerializeField] ScoreUI scoreUICounter;
     [SerializeField] private AudioManager audioManager;
@@ -18,8 +18,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     private int currentBrickCount;
     private int totalBrickCount;
     private int currentLives;
-    
-    
+
+
 
     private void OnEnable()
     {
@@ -54,17 +54,18 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
         Debug.Log($"Current Score: {score}");
-        if (currentBrickCount <= 0) {
+        if (currentBrickCount <= 0)
+        {
             score = 0;
-            SceneHandler.Instance.LoadNextScene(); 
-            }
+            SceneHandler.Instance.LoadNextScene();
+        }
     }
 
     public void KillBall()
     {
         currentLives--;
         Debug.Log($"Current Lives: {maxLives}");
-        
+
         UpdateHeartsUI();
         // update lives on HUD here
         // game over UI if maxLives < 0, then exit to main menu after delay
@@ -92,15 +93,16 @@ public class GameManager : SingletonMonoBehavior<GameManager>
 
     private void UpdateHeartsUI()
     {
-        
+
         Debug.Log($"Updating hearts UI - Current Lives: {currentLives}");
         int lastHeartIndex = currentLives;
         for (int i = 0; i < heartsUI.Count; i++)
         {
             bool isFull = i < currentLives;
             Debug.Log($"Setting heart {i} to {(isFull ? "FULL" : "EMPTY")}");
-            if (!isFull) {
-             
+            if (!isFull)
+            {
+
                 Hearts heart = heartsUI[i];
                 if (heart == null) continue;
                 heart.transform.DOShakeScale(0.3f, 0.5f, 10).OnComplete(() => {
@@ -127,7 +129,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
             }
 
 
-           
+
         }
         if (currentLives <= 0)
         {
