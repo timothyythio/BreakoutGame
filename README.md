@@ -45,4 +45,10 @@ public class CameraShake : SingletonMonoBehavior<CameraShake>
 
 ---
 
+## **📹 Video changes**
+
+
+
+https://github.com/user-attachments/assets/335aa7c7-9aa4-4492-871f-5ad1ac228518
+
 
