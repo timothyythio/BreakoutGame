@@ -44,5 +44,8 @@ public class CameraShake : SingletonMonoBehavior<CameraShake>
 ```
 
 ---
+## **📹 Video Demo**
 
+[![Watch the video](https://img.youtube.com/vi/4d43VhhUOY8/maxresdefault.jpg)](https://youtu.be/4d43VhhUOY8)
 
+### [Click here to watch the game demo](https://youtu.be/4d43VhhUOY8)
