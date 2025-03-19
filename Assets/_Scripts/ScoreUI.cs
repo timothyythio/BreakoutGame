@@ -1,9 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class ScoreUI : MonoBehaviour
 {
