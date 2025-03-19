@@ -171,6 +171,7 @@ MonoBehaviour:
   animationType: 19
   animationDuration: 1
   transitionCanvas: {fileID: 1003730455}
+  gameOverScene: GameOverScreen
 --- !u!114 &681802681
 MonoBehaviour:
   m_ObjectHideFlags: 0
